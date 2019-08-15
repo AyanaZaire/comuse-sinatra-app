@@ -25,21 +25,22 @@
       - Migrations
       - Model classes
       - Associations
-- [ ] 8. Test your models and associations in the console
+- [x] 8. Test your models and associations in the console
       - Create some seed data
       - Adjust migrations as needed
 
-### PART 2
+**KEYWORDS FOR ASSESSMENT**
+- ActiveRecord
+- MVC
+- Associations (has_many, belongs_to macro)
+- `has_secure_password`
+- Migrations
+
+### PART 2 — Authentication (User Login)
 
 **NOW, CONSIDER CONTROLLERS AND VIEWS**
 
-- [ ] 8. Start with your ApplicationController helpers - `#logged_in?` and `#current_user`
-  - add your login/signup/signout routes
 
-- [ ] 9. Build out controller routes for other models (add a controller for each model)
-
-- [ ] 10. Build views and controller actions based on the flow of your app, one step at a time, testing as you go!
-  - Use `shotgun` and `pry` (or `raise`/`inspect`) all the time!
 
 
 ### Using the corneal gem
