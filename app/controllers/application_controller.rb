@@ -26,5 +26,6 @@ class ApplicationController < Sinatra::Base
       #current_user will return nil or the entire user object (we want true/false)
       !!current_user
     end
+  end
 
 end

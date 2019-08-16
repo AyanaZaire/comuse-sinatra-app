@@ -24,7 +24,25 @@ class UsersController < ApplicationController
 
   #user SHOW route
   get '/users/:id' do
-    "user profile page!"
+    #find the user
+    @user = User.find_by(id: params[:id])
+    erb :show
+  end
+
+  #what routes do I need for sign up?
+  get '/signup' do
+    #render my sign form
+    #erb :sign_up
+    #that form would point to a post '/users' method
+  end
+
+  post '/users' do
+    # only create user if they provide name, email, image, bio, AND password
+    #if all data is present
+      #add a key/value pair to their session hash
+      #redirect to user profile
+    #else
+      #try again 
   end
 
 end
