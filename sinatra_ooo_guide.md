@@ -36,9 +36,27 @@
 - `has_secure_password`
 - Migrations
 
-### PART 2 — Authentication (User Login)
+### PART 2 — User Authentication: Log In
 
-**NOW, CONSIDER CONTROLLERS AND VIEWS**
+**NOW, CONSIDER USER CONTROLLER, APPLICATION CONTROLLER, AND VIEWS**
+
+- [ ] 9. Start with your `UserController`
+  - add your `get` login/signup/logout routes
+  - add your `post` login/sign up routes
+
+- [ ] 10. Create your views
+  - display login form
+  - display signup form
+  - user show page
+
+- [ ] 11. Create your `ApplicationController` helper methods
+  - `#logged_in?`
+  - `#current_user`
+
+- [ ] 12. Build out controller routes for other models (add a controller for each model)
+
+- [ ] 13. Build views and controller actions based on the flow of your app, one step at a time, testing as you go!
+  - Use `shotgun` and `pry` (or `raise`/`inspect`) all the time!
 
 
 
