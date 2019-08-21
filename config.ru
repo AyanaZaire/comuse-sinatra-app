@@ -9,5 +9,6 @@ use Rack::MethodOverride
 
 #here is where I will mount other controller `use`
 use UsersController
+use PostsController
 
 run ApplicationController
