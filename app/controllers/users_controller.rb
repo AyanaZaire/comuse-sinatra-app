@@ -38,6 +38,8 @@ class UsersController < ApplicationController
   #create new user using sign up form
   post '/users' do
     @user = User.create(params)
+    #[x] log them in - creating a session, adding a key/value pair to session hash
+    session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
   end
 
