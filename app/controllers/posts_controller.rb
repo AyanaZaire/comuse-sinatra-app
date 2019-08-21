@@ -8,7 +8,13 @@ class PostsController < ApplicationController
     @posts = Post.all
     erb :'posts/index'
   end
+
   # show out for single post
+  get '/posts/:id' do
+    # id is coming from url - params
+    @post = Post.find(params[:id])
+    erb :'posts/show'
+  end
 
   # CREATE
   # get 'post/new' render a form to create a new post
