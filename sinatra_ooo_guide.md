@@ -36,29 +36,58 @@
 - `has_secure_password`
 - Migrations
 
-### PART 2 — User Authentication: Log In
+### PART 2 — User Authentication
 
 **NOW, CONSIDER USER CONTROLLER, APPLICATION CONTROLLER, AND VIEWS**
 
-- [ ] 9. Start with your `UserController`
-  - add your `get` login/signup/logout routes
-  - add your `post` login/sign up routes
+*IMPORTANT:* Build views and controller actions based on the flow of your app, one step at a time, testing as you go!
+  - Use `shotgun` and `pry` (or `raise`/`inspect`) all the time!
 
-- [ ] 10. Create your views
+- [x] 9. Start with your `UsersController`
+  - Add your `get` login/signup/logout routes
+  - Add your `post` login/sign up routes
+
+- [x] 10. Enable `sessions` in `ApplicationController`
+  - Enable sessions
+  - Create session secret
+
+- [x] 11. Create your views
   - display login form
   - display signup form
   - user show page
 
-- [ ] 11. Create your `ApplicationController` helper methods
+- [x] 12. Create your `ApplicationController` helper methods
   - `#logged_in?`
   - `#current_user`
 
-- [ ] 12. Build out controller routes for other models (add a controller for each model)
+- [ ] 13. Build out controller routes for other models (add a controller for each model)
 
-- [ ] 13. Build views and controller actions based on the flow of your app, one step at a time, testing as you go!
-  - Use `shotgun` and `pry` (or `raise`/`inspect`) all the time!
+### PART 3 — CRUD
 
+- [ ] 14. Create your `PostsController`
+  - Mount new controller in `ApplicationController` with `use PostsController`
 
+- [ ] 15. Implement READ functionality
+  - Create `get '/posts'` index route
+  - Create `index.erb` view
+  - Create `get '/posts/:id'` show route
+  - Create `show.erb` view
+
+- [ ] 16. Implement CREATE functionality
+  - Create `get '/posts/new'` to render form
+  - Create `new.erb`
+  - Create `post "/posts" do` to create new post
+
+- [ ] 17. Implement UPDATE functionality
+  - Confirm `use Rack::MethodOverride` in `config.ru`
+  - Create `get '/posts/:id/edit'` to render form
+  - Create `edit.erb`
+  - Create `patch '/posts/:id'` to create new post
+
+- [ ] 18. Implement DELETE functionality
+  - Confirm `use Rack::MethodOverride` in `config.ru`
+  - Create `delete` form in `show.erb` view
+  - Create `delete '/posts/:id'` route
 
 
 ### Using the corneal gem

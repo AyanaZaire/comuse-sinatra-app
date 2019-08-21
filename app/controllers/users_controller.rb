@@ -26,23 +26,29 @@ class UsersController < ApplicationController
   get '/users/:id' do
     #find the user
     @user = User.find_by(id: params[:id])
-    erb :show
+    erb :'/users/show'
   end
 
-  #what routes do I need for sign up?
+  #render sign up form
   get '/signup' do
     #render my sign form
-    #erb :sign_up
-    #that form would point to a post '/users' method
+    erb :signup
   end
 
+  #create new user using sign up form
   post '/users' do
-    # only create user if they provide name, email, image, bio, AND password
-    #if all data is present
-      #add a key/value pair to their session hash
-      #redirect to user profile
-    #else
-      #try again 
+    @user = User.create(params)
+    redirect "/users/#{@user.id}"
   end
+
+  #logs out user by clearing session hash
+  get '/logout' do
+    #binding.pry
+    session.clear
+    #binding.pry
+    redirect '/'
+  end
+
+
 
 end
