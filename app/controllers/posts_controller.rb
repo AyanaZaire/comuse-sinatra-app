@@ -33,7 +33,14 @@ class PostsController < ApplicationController
   # get 'post/edit' route to render the form for editing a post
   # patch route to update an existing post
 
+
   # DELETE
   # delete rotue to delete and existing post
+  delete '/posts/:id' do
+    # we need the id to FIND the post to delete
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect '/posts'
+  end
 
 end

@@ -67,13 +67,13 @@
 - [ ] 14. Create your `PostsController`
   - Mount new controller in `ApplicationController` with `use PostsController`
 
-- [ ] 15. Implement READ functionality
+- [x] 15. Implement READ functionality
   - Create `get '/posts'` index route
   - Create `index.erb` view
   - Create `get '/posts/:id'` show route
   - Create `show.erb` view
 
-- [ ] 16. Implement CREATE functionality
+- [x] 16. Implement CREATE functionality
   - Create `get '/posts/new'` to render form
   - Create `new.erb`
   - Create `post "/posts" do` to create new post
@@ -84,7 +84,7 @@
   - Create `edit.erb`
   - Create `patch '/posts/:id'` to create new post
 
-- [ ] 18. Implement DELETE functionality
+- [x] 18. Implement DELETE functionality
   - Confirm `use Rack::MethodOverride` in `config.ru`
   - Create `delete` form in `show.erb` view
   - Create `delete '/posts/:id'` route
