@@ -18,7 +18,6 @@ class PostsController < ApplicationController
   # post route to create a new post
   post "/posts" do
     @post = Post.create(title: params[:title], image_url: params[:image_url], description: params[:description], user_id: current_user.id)
-
     redirect "/posts/#{@post.id}"
   end
 
@@ -30,9 +29,19 @@ class PostsController < ApplicationController
   end
 
   # UPDATE
-  # get 'post/edit' route to render the form for editing a post
-  # patch route to update an existing post
+  # link to edit on show page for post
+  # get posts/edit to render a form to edit a post
+  get '/posts/:id/edit' do
+    @post = Post.find(params[:id])
+    erb :'/posts/edit'
+  end
 
+  # patch route to update a existing post
+  patch '/posts/:id' do
+    @post = Post.find(params[:id])
+    @post.update(title: params[:title], image_url: params[:image_url], description: params[:description])
+    redirect "/posts/#{@post.id}"
+  end
 
   # DELETE
   # delete rotue to delete and existing post

@@ -11,14 +11,18 @@ class UsersController < ApplicationController
     #[x] find the user
     @user = User.find_by(email: params[:email])
     #authenticate the user
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       #[x] log them in - creating a session, adding a key/value pair to session hash
       session[:user_id] = @user.id
+      # [] success message
+      flash[:message] = "Welcome back #{@user.name}!"
       #[x] redirects to user profile
       redirect "users/#{@user.id}"
     else
-      #show an error
+      # [x] show an error
+      flash[:errors] = "Wrong credentials!"
       #redirect to login form
+      redirect '/login'
     end
   end
 
