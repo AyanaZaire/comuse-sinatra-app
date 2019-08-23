@@ -41,10 +41,17 @@ class UsersController < ApplicationController
 
   #create new user using sign up form
   post '/users' do
-    @user = User.create(params)
-    #[x] log them in - creating a session, adding a key/value pair to session hash
-    session[:user_id] = @user.id
-    redirect "/users/#{@user.id}"
+    @user = User.new(params)
+    if @user.save
+      #[x] log them in - creating a session, adding a key/value pair to session hash
+      session[:user_id] = @user.id
+      flash[:message] = "#{@user.name}, Welcome!"
+      redirect "/users/#{@user.id}"
+    else
+      #not valid input
+      flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}"
+      redirect '/signup'
+    end
   end
 
   #logs out user by clearing session hash

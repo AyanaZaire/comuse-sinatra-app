@@ -17,8 +17,14 @@ class PostsController < ApplicationController
 
   # post route to create a new post
   post "/posts" do
-    @post = Post.create(title: params[:title], image_url: params[:image_url], description: params[:description], user_id: current_user.id)
-    redirect "/posts/#{@post.id}"
+    @post = Post.new(title: params[:title], image_url: params[:image_url], description: params[:description], user_id: current_user.id)
+    if @post.save
+      flash[:message] = "Post successfully created!"
+      redirect "/posts/#{@post.id}"
+    else
+      flash[:errors] = "Post creation failure: #{@post.errors.full_messages.to_sentence}"
+      redirect '/posts/new'
+    end
   end
 
   # show out for single post
