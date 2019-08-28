@@ -31,6 +31,18 @@ class ApplicationController < Sinatra::Base
       #current_user will return nil or the entire user object (we want true/false)
       !!current_user
     end
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        flash[:errors] = "Must be logged in to view this page!"
+        redirect '/login'
+      end
+    end
+
+    def authorized_to_edit?(post)
+      post.user == current_user
+    end
+
   end
 
 end
